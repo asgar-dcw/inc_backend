@@ -4,13 +4,13 @@ import dotenv from 'dotenv';
 import { testConnection } from './services/database.js';
 
 // Import routes
-import salesRoutes from './routes/sales';
-import productsRoutes from './routes/products';
-import customersRoutes from './routes/customers';
-import customizationsRoutes from './routes/customizations';
-import dashboardRoutes from './routes/dashboard';
-import intelligenceRoutes from './routes/intelligence';
-import chatbotRoutes from './routes/chatbot';
+import salesRoutes from './routes/sales.js';
+import productsRoutes from './routes/products.js';
+import customersRoutes from './routes/customers.js';
+import customizationsRoutes from './routes/customizations.js';
+import dashboardRoutes from './routes/dashboard.js';
+import intelligenceRoutes from './routes/intelligence.js';
+import chatbotRoutes from './routes/chatbot.js';
 
 dotenv.config();
 
