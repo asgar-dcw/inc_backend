@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { testConnection } from './services/database';
+import { testConnection } from './services/database.js';
 
 // Import routes
 import salesRoutes from './routes/sales';
