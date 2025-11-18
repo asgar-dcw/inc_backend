@@ -14,7 +14,14 @@ const main = async () => {
 
     // Analyze key tables
     console.log('[INFO] Analyzing key tables...');
-    const schema = await analyzeKeyTables();
+    interface ColumnInfo {
+      COLUMN_NAME: string;
+      DATA_TYPE: string;
+      IS_NULLABLE: string;
+      [key: string]: any;
+    }
+
+    const schema = await analyzeKeyTables() as Record<string, ColumnInfo[]>;
 
     // Get sample data from key tables
     console.log('[INFO] Getting sample data...');
@@ -42,9 +49,10 @@ const main = async () => {
     console.log('\n=== DATABASE SCHEMA ANALYSIS ===\n');
     
     for (const [table, columns] of Object.entries(schema)) {
+      const columnList = columns ?? [];
       console.log(`\nTable: ${table}`);
-      console.log(`Columns (${columns.length}):`);
-      columns.forEach((col: any) => {
+      console.log(`Columns (${columnList.length}):`);
+      columnList.forEach((col) => {
         console.log(`  - ${col.COLUMN_NAME} (${col.DATA_TYPE}) ${col.IS_NULLABLE === 'YES' ? 'NULL' : 'NOT NULL'}`);
       });
       
